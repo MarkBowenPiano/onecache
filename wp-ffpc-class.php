@@ -119,7 +119,7 @@ class WP_FFPC extends WP_FFPC_ABSTRACT {
 		else {
 			$sitedomain = parse_url( get_option('siteurl') , PHP_URL_HOST);
 			if ( $_SERVER['HTTP_HOST'] != $sitedomain ) {
-				$this->errors['domain_mismatch'] = sprintf( __("Domain mismatch: the site domain configuration (%s) does not match the HTTP_HOST (%s) variable in PHP. Please fix the incorrect one, otherwise the plugin may not work as expected.", $this->plugin_constant ), $sitedomain, $_SERVER['HTTP_HOST'] );
+			//	$this->errors['domain_mismatch'] = sprintf( __("Domain mismatch: the site domain configuration (%s) does not match the HTTP_HOST (%s) variable in PHP. Please fix the incorrect one, otherwise the plugin may not work as expected.", $this->plugin_constant ), $sitedomain, $_SERVER['HTTP_HOST'] );
 			}
 
 			$this->global_config_key = $_SERVER['HTTP_HOST'];
@@ -188,6 +188,9 @@ class WP_FFPC extends WP_FFPC_ABSTRACT {
 
 		/* cache invalidation hooks */
 		add_action(  'transition_post_status',  array( &$this->backend , 'clear_ng' ), 10, 3 );
+
+		// save
+		$this->plugin_extend_options_save(false);
 
 		/* comments invalidation hooks */
 		if ( $this->options['comments_invalidate'] ) {
@@ -258,6 +261,7 @@ class WP_FFPC extends WP_FFPC_ABSTRACT {
 				}
 			}
 		}
+
 	}
 
 	/**
