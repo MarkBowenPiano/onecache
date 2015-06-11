@@ -1,9 +1,9 @@
 {
-  "name": "petermolnar/wp-ffpc",
+  "name": "koneio/onecache",
   "type": "wordpress-plugin",
-  "homepage": "https://github.com/petermolnar/wp-ffpc",
+  "homepage": "https://github.com/koneio/onecache",
   "license": "GPLv3",
-  "description": "WordPress Plugin WP-FFPC",
+  "description": "WordPress Plugin Onecache",
   "keywords": ["plugin", "cache", "page cache", "full page cache", "nginx", "memcached", "apc", "speed"],
   "require": {
     "composer/installers": "~1.0.0"
