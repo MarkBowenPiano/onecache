@@ -190,6 +190,9 @@ class WP_FFPC extends WP_FFPC_ABSTRACT {
 		add_action(  'transition_post_status',  array( &$this->backend , 'clear_ng' ), 10, 3 );
 
 		// save
+		$this->update_global_config();
+		$this->plugin_options_save();
+		$this->deploy_advanced_cache();
 		$this->plugin_extend_options_save(false);
 
 		/* comments invalidation hooks */
